@@ -318,3 +318,20 @@ LEFT JOIN contact_seeking AS con_seek
 	ON con.contact_id =con_seek.contact_id
 LEFT JOIN seeking
 	ON con_seek.seeking_id =seeking.seeking_id;
+	
+SELECT con.contact_id, con.last_name, con.first_name, con.phone, con.email, con.gender, con.birthday, prof.profession, zip.zip_code, zip.city, zip.province, stat.status, intrests.intrest, seeking.seeking
+FROM my_contacts AS con LEFT JOIN profession AS prof
+	ON con.prof_id = prof.prof_id
+LEFT JOIN zip_code AS zip
+	ON con.zip_code = zip.zip_code
+LEFT JOIN status AS stat
+	ON con.status_id = stat.status_id
+LEFT JOIN contact_intrest As con_int
+	ON con.contact_id = con_int.contact_id
+LEFT JOIN intrests
+	ON con_int.intrest_id = intrests.intrest_id
+LEFT JOIN contact_seeking AS con_seek
+	ON con.contact_id =con_seek.contact_id
+LEFT JOIN seeking
+	ON con_seek.seeking_id =seeking.seeking_id;
+
